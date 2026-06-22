@@ -97,18 +97,21 @@ Terraform provisions:
 
 ## Terraform Structure
 
+## Terraform Structure
+
+```bash
 Terraform/
 ├── modules/
-│ ├── vpc/
-│ ├── security_group/
-│ ├── ec2/
-│ └── rds/
-│
+│   ├── vpc/
+│   ├── security_group/
+│   ├── ec2/
+│   └── rds/
 ├── remote-backend/
 ├── provider.tf
 ├── variables.tf
 ├── outputs.tf
 └── main.tf
+```
 
 ## Remote State Management
 
@@ -216,6 +219,32 @@ chmod +x health_check.sh
 
 ./health_check.sh
 
-## Example Output
+## Output
 
-Health check results are stored in timestamped log files for operational troubleshooting and monitoring.
+The script creates a timestamped log file:
+
+```text
+health_check_20260623_011951.log
+```
+
+Sample log output:
+
+```text
+System Health Check
+Time: Tue Jun 23 01:19:51 AM IST 2026
+
+Disk Usage:
+...
+Current Disk Usage: 39%
+
+Memory Usage:
+...
+Docker Status: Running
+
+Disk usage is normal
+```
+
+Exit Codes:
+
+- 0 = Disk usage is 80% or below
+- 1 = Disk usage exceeds 80% or log file creation fails
