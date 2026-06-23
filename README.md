@@ -191,7 +191,7 @@ terraform destroy
 
 # Tradeoffs Considered
 
-* NAT Gateway was not deployed to reduce cost.
+* NAT Gateway was not deployed — VPC Endpoints used for ECR and S3 access instead
 * Single-AZ deployment selected for simplicity and cost optimization.
 * Minimal infrastructure was provisioned based on assessment requirements.
 * ALB was included in architecture design but not provisioned through Terraform because it was not explicitly requested.
