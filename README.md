@@ -73,6 +73,7 @@ In a production environment, AWS Secrets Manager would be used to securely store
 * Single-AZ deployment
 * No NAT Gateway
 * SSM used instead of Bastion Host
+* VPC Endpoints used instead of NAT Gateway (ECR API, ECR DKR, S3 Gateway)
 
 ---
 
@@ -94,8 +95,6 @@ Terraform provisions:
 * AWS Systems Manager Access
 * MySQL RDS
 * DB Subnet Group
-
-## Terraform Structure
 
 ## Terraform Structure
 
@@ -187,7 +186,7 @@ terraform destroy
 * Private subnet used for application and database workloads.
 * CloudWatch selected for centralized monitoring.
 * Amazon ECR selected for container image storage.
-
+* VPC Endpoints used for private ECR access without NAT Gateway
 ---
 
 # Tradeoffs Considered
